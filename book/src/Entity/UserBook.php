@@ -26,9 +26,6 @@ class UserBook
     #[ORM\Column(nullable: true)]
     private ?int $rating = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $user = null;
-
     #[ORM\ManyToOne(inversedBy: 'userBooks')]
     private ?User $reader = null;
 
@@ -87,18 +84,6 @@ class UserBook
     public function setRating(?int $rating): static
     {
         $this->rating = $rating;
-
-        return $this;
-    }
-
-    public function getUser(): ?string
-    {
-        return $this->user;
-    }
-
-    public function setUser(string $user): static
-    {
-        $this->user = $user;
 
         return $this;
     }
