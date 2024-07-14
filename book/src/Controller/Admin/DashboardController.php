@@ -8,6 +8,7 @@ use App\Entity\Author;
 use App\Entity\Status;
 use App\Entity\UserBook;
 use App\Entity\Publisher;
+use App\Entity\Invitation;
 use App\Controller\Admin\BookCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,6 +35,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linkToCrud('Invitations', 'fas fa-envelope', Invitation::class);
         yield MenuItem::linkToCrud('Books', 'fas fa-list', Book::class);
         yield MenuItem::linkToCrud('Authors', 'fas fa-user-pen', Author::class);
         yield MenuItem::linkToCrud('Publishers', 'fas fa-building', Publisher::class);
